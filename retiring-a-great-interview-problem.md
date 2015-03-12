@@ -1,5 +1,5 @@
 # Retiring a great interview problem
-## [original](http://thenoisychannel.com/2011/08/08/retiring-a-great-interview-problem)
+[original](http://thenoisychannel.com/2011/08/08/retiring-a-great-interview-problem)
 
 소프트웨어 엔지니어를 인터뷰하는 것은 쉽지 않다. Jeff Atwood는
 [코드를 쓸 줄이라도 아는](http://blog.codinghorror.com/why-cant-programmers-program/)
@@ -44,29 +44,44 @@
 지원자들이 물어볼 수 있을 만한 질문들과 그에 대한 나의 답변이다:
 
 >Q: 만약 입력 문자열 자체가 사전에 들어 있는 단어라면?
-A: 하나의 단어는 space-separated 문자열의 특수한 케이스로 생각할 수 있다.
+
+>A: 하나의 단어는 space-separated 문자열의 특수한 케이스로 생각할 수 있다.
+
 
 >Q: 두 개의 단어로 쪼개지는 경우만 고려하면 되나?
-A: 그렇진 않지만, 거기서부터 시작하면 한결 수월할 것이다.
+
+>A: 그렇진 않지만, 거기서부터 시작하면 한결 수월할 것이다.
+
 
 >Q: 만약 입력 문자열이 사전에 들어있는 단어들로 쪼개질 수 없다면?
-A: null, 혹은 그에 해당하는 다른 것을 리턴하도록 짜 보아라.
+
+>A: null, 혹은 그에 해당하는 다른 것을 리턴하도록 짜 보아라.
+
 
 >Q: stemming(역: 두 단어가 합쳐지며 한 단어의 일부분이 변형되는 현상)이나 맞춤법
 교정 등도 신경 써야 하나?
-A: 그런 경우는 말고 그저 분리된 그대로의 단어들이 사전에 있는 케이스만 생각하면 된다.
+
+>A: 그런 경우는 말고 그저 분리된 그대로의 단어들이 사전에 있는 케이스만 생각하면 된다.
+
 
 >Q: 만약 여러가지 가능한 분할 방법이 존재한다면?
-A: 그 중 유효한 하나의 경우만 리턴하면 된다.
+
+>A: 그 중 유효한 하나의 경우만 리턴하면 된다.
+
 
 >Q: 사전을 트리 / 접미사 트리 / 피보나치 힙 으로 구현하려고 하는데...
-A: 사전을 구현할 필요는 없다. 그냥 합리적인 방법으로 접근할 수 있다고 가정해.
+
+>A: 사전을 구현할 필요는 없다. 그냥 합리적인 방법으로 접근할 수 있다고 가정해.
+
 
 >Q: 이 사전에는 어떤 기능이 있는데?
-A: 주어진 문자열이 들어 있는지 찾아보는 거. 그거만 있으면 되잖아.
+
+>A: 주어진 문자열이 들어 있는지 찾아보는 거. 그거만 있으면 되잖아.
+
 
 >Q: 사전의 크기가 어떻게 되지?
-A: 입력 문자열보다는 훨씬 크고, 메모리 문제를 일으키진 않을 정도야.
+
+>A: 입력 문자열보다는 훨씬 크고, 메모리 문제를 일으키진 않을 정도야.
 
 지원자가 이러한 세부사항에 대해 어떻게 협상해 오는지를 보는 것은 꽤나 유익한데,
 지원자의 기본적인 자료 구조/알고리즘 관련 기본적인 이해 정도는 물론이거니와
@@ -111,6 +126,7 @@ FizzBuzz 문제는 면접관들이 프로그램을 짤 줄도 모르는 프로�
 방법이 있지만, 가장 직관적인 방법은 [재귀적 백트래킹](http://en.wikipedia.org/wiki/Backtracking)이다.
 아래는 위의 코드를 이용해 작성한 전형적인 해결책이다:
 
+````
 String SegmentString(String input, Set<String> dict) {
   if (dict.contains(input)) return input;
   int len = input.length();
@@ -126,6 +142,7 @@ String SegmentString(String input, Set<String> dict) {
   }
   return null;
 }
+````
 
 소프트웨어 엔지니어링 직군에 지원한 많은 지원자들이 삼십분 내에 위와 같은,
 혹은 비슷한 해결책(예를 들면 explicit stack을 이용한 해결책)을 떠올리지 못한다.
@@ -231,11 +248,6 @@ Glassdoor에 포스팅한 것을 알게 되었다. 그 글에 있는 해법은 �
 실력이 중요한 문제를 이야기하는 것 같은데 매끄럽게 해석을 못 하겠네요.) 나는
 나의 동료들과 함께 그러한 접근법을 시도해 보는 중이다. 당연하지만, 만약 우리가
 그런 방식을 효율적으로 사용할 수 있게 되면 관련된 정보를 공유할 것이다.
-In the mean time, I hope that everyone who experienced the word break problem
-appreciated it as a worthy test of their skills. No problem is perfect, nor can
-performance on a single interview question ever be a perfect predictor of how
-well a candidate will perform as an engineer. Still, this one was pretty good,
-and I know that a bunch of us will miss it.
 
 그 전까지는, 위의 "단어 쪼개기" 문제를 본 모든 사람들이 이 문제를 그들의 실력을
 검증할 수 있는 테스트로 여겨주길 바란다. 어떤 문제도 완벽할 수는 없고, 하나의
