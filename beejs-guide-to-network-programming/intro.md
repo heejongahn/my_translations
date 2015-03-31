@@ -112,7 +112,7 @@ Windows에 우호적이여야 한다죠 아마?
 잠깐! 그것 뿐만 아니라, 소켓 라이브러리를 이용하기 전에 WSAStartup()을
 호출해주어야 합니다. 이런 식으로요:
 
-`
+```C
 #include <winsock.h>
 
 {
@@ -125,7 +125,7 @@ Windows에 우호적이여야 한다죠 아마?
         fprintf(stderr, "WSAStartup failed.\n");
         exit(1);
     }
-`
+```
 
 그 뿐만 아니라, wsock23.lib, winsock32.lib, 혹은 ws2_32.lib(for Winsock 2.0)
 등의 이름을 갖는 Winsock 라이브러리를 링크하라고 컴파일러에게 알려줘야 합니다.
