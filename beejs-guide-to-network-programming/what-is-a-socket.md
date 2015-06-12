@@ -100,18 +100,18 @@ RETURN을 두 번 누르면 웹 사이트는 HTML을 당신에게 던져줄 거�
 ACK를 받을때까지 해당 패킷을 재전송합니다. 이러한 인식 절차는 SOCK_DGRAM을
 이용해 신뢰할 수 있는 통신 어플리케이션을 구현할 때 매우 중요합니다.
 
+신뢰성이 딱히 필요없는 게임, 오디오, 비디오 같은 어플리케이션에서는 누락된
+패킷들을 무시하거나, 아니면 영리하게 그 부분을 보충해낼 수 있어요. (퀘이크
+플레이어들은 이와 같은 이유로 일어나는 기술적인 용어를 알고 있겠죠: 빌어먹을 렉.
+여기서 '빌어먹을'이란 모든 상스러운 형용사에 해당합니다.)
 
-For unreliable applications like games, audio, or video, you just ignore the
-dropped packets, or perhaps try to cleverly compensate for them. (Quake players
-will know the manifestation this effect by the technical term: accursed lag. The
-word "accursed", in this case, represents any extremely profane utterance.)
-
-Why would you use an unreliable underlying protocol? Two reasons: speed and
-speed. It's way faster to fire-and-forget than it is to keep track of what has
-arrived safely and make sure it's in order and all that. If you're sending chat
-messages, TCP is great; if you're sending 40 positional updates per second of
-the players in the world, maybe it doesn't matter so much if one or two get
-dropped, and UDP is a good choice.
+그럼 대체 신뢰성이 없는 프로토콜을 왜 굳이 사용하는 걸까요? 두 가지 이유가
+있죠: 속도, 그리고 속도. 자신이 전송한 것들이 안전하게 도착했고 순서도 제대로
+됐고 온갖 것들을 확인하는 것보다는 그냥 보내버린뒤에 깨끗이 잊어버리는게 훨씬
+빠르겠죠. 채팅 메세지를 보내려 한다면 TCP가 훌륭한 선택일 겁니다. 만약 당신이
+게임 월드에서 1초당 40번씩 일어나는 플레이어의 위치 변경에 대한 정보를 전송하려
+한다면 그 중 한둘 정도는 누락되도 큰 문제가 안 될거고, UDP를 선택하는게
+현명하겠죠.
 
 ## 2.2. Low level Nonsense and Network Theory
 
